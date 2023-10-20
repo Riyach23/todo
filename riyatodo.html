@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>TO-DO LIST</title>
+    </head>
+    <body>
+        <style>
+            *{ 
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family: sans-serif;
+                background-color:seagreen;
+            }
+            body{
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                min-height:50%;
+            }
+            .box
+            {
+                position:relative;
+                width:100%;
+                height:55%px;
+                text-align:top;
+                padding: 30px;
+                background-color:cornflowerblue;
+                box-shadow:25px 25px 75px rgba(0,0,0,0.25), 10px 10px 70px rgba(0,0,0,0.25);
+                inset:5px 5px 10px rgba(0,0,0,0.5);
+                inset:5px 5px 20px rgba(255,255,255,0.2);
+                inset: -5px -5px 15px rgba(0,0,0,0.75); 
+                
+            }
+            h2{
+                width:100%;
+                font-weight:bolder;
+                font-size: xx-large;
+                text-align:center;
+                color: black;
+                box-sizing:border-box;
+                border-radius:15px;
+            }
+           .value{
+                 height: 8%;
+                 width:75%;
+                 position:relative;
+                 color:black;
+                 font-size: medium;
+                 font-family:sans-serif;
+                 border-radius:25px;
+                
+            }       
+            .define{
+                height:7%;
+                width:20%;
+                color:beige;
+                font-weight:bold;
+                box-sizing: border-box;
+                font-size: medium;
+                 font-family: monospace;
+                 border-radius:10px;
+                 background-color:cornflowerblue;
+
+            }
+            .text ul{
+                position:relative;
+                background-color:beige;
+                color:black;
+                font-weight:bold;
+                font-size:medium;
+                padding:10px;
+                box-sizing:border-box;
+                box-shadow: inset;
+                text-align:left;
+                font-size:medium;
+            }
+            .text ul i{
+                position:absolute;
+                right:10px;
+                cursor:pointer;
+            }
+         </style>
+            <div class="cont">
+                <div class="box">
+                    <h2>To-do List</h2><br/>
+                    <input type="text" placeholder="Enter Your Task" class="value" id="input">
+                    <button onclick="Addition()" class="define">ADD</button>
+                </div>
+                    <div class="text">
+
+                    </div>
+                
+                </div>
+                <script>
+                    let inputs = document.getElementById("input");
+                    let text= document.querySelector(".text");
+                    
+                    function Addition(){
+                        if(inputs.value==""){
+                            alert("PLEASE ENTER TASK")
+
+                        }else{
+                             let nelm=document.createElement("ul");
+                             nelm.innerHTML=`${inputs.value}`;
+                             text.appendChild(nelm);
+                             inputs.value="";
+                             nelm.querySelector("i").addEventListener("click" , remove);
+                             function remove(){}
+
+                        }
+                    }
+                    </script>
